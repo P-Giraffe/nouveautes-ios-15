@@ -38,13 +38,25 @@ struct TodoListView: View {
                     }
                 }
             }
+            .navigationTitle("Todos")
             .task {
                 await loadTodoList()
             }
             .refreshable {
                 await loadTodoList()
             }
-            .searchable(text: $searchFilter)
+            .searchable(text: $searchFilter) {
+                switch searchFilter.count {
+                case 0:
+                    Text("🚀").searchCompletion("fusée")
+                    Text("☀️").searchCompletion("soleil")
+                case 1:
+                    Text("🏝").searchCompletion("île")
+                    Text("🐴").searchCompletion("porro")
+                default:
+                    Text("✅").searchCompletion("ok")
+                }
+            }
         }
         
     }
