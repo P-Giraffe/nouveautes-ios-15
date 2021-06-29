@@ -9,37 +9,42 @@ import SwiftUI
 
 struct TodoListView: View {
     @State var todoList:[Todo] = []
+    @State var searchFilter = ""
     var body: some View {
-        List {
-            ForEach($todoList) { $todo in
-                TodoRow(todo: todo).onTapGesture {
-                    todo.completed.toggle()
-                }.swipeActions(allowsFullSwipe:false) {
- 
-                    Button(role: .destructive) {
-                        if let index = todoList.firstIndex(of: todo) {
-                            withAnimation {
-                                _ = todoList.remove(at: index)
+        NavigationView {
+            List {
+                ForEach($todoList) { $todo in
+                    if searchFilter.isEmpty || todo.title.lowercased().contains(searchFilter.lowercased()) {
+                        TodoRow(todo: todo).onTapGesture {
+                            todo.completed.toggle()
+                        }.swipeActions(allowsFullSwipe:false) {
+                            
+                            Button(role: .destructive) {
+                                if let index = todoList.firstIndex(of: todo) {
+                                    withAnimation {
+                                        _ = todoList.remove(at: index)
+                                    }
+                                }
+                            } label: {
+                                Label("Supprimer", systemImage: "trash")
                             }
-                        }
-                    } label: {
-                        Label("Supprimer", systemImage: "trash")
-                    }
-                }.swipeActions(edge: .leading) {
-                    Button {
-                        todo.isImportant.toggle()
-                    } label: {
-                        Label("Important", systemImage: "star")
+                        }.swipeActions(edge: .leading) {
+                            Button {
+                                todo.isImportant.toggle()
+                            } label: {
+                                Label("Important", systemImage: "star")
+                            }
+                        }.listRowSeparator(.hidden)
                     }
                 }
-                    
             }
-        }
-        .task {
-            await loadTodoList()
-        }
-        .refreshable {
-            await loadTodoList()
+            .task {
+                await loadTodoList()
+            }
+            .refreshable {
+                await loadTodoList()
+            }
+            .searchable(text: $searchFilter)
         }
         
     }
