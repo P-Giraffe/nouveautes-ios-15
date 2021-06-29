@@ -11,8 +11,28 @@ struct TodoListView: View {
     @State var todoList:[Todo] = []
     var body: some View {
         List {
-            ForEach(todoList) { todo in
-                TodoRow(todo: todo)
+            ForEach($todoList) { $todo in
+                TodoRow(todo: todo).onTapGesture {
+                    todo.completed.toggle()
+                }.swipeActions(allowsFullSwipe:false) {
+ 
+                    Button(role: .destructive) {
+                        if let index = todoList.firstIndex(of: todo) {
+                            withAnimation {
+                                _ = todoList.remove(at: index)
+                            }
+                        }
+                    } label: {
+                        Label("Supprimer", systemImage: "trash")
+                    }
+                }.swipeActions(edge: .leading) {
+                    Button {
+                        todo.isImportant.toggle()
+                    } label: {
+                        Label("Important", systemImage: "star")
+                    }
+                }
+                    
             }
         }
         .task {
@@ -21,6 +41,7 @@ struct TodoListView: View {
         .refreshable {
             await loadTodoList()
         }
+        
     }
     
     func loadTodoList() async  {
