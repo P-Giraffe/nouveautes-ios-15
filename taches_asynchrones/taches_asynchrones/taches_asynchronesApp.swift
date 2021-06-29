@@ -11,7 +11,7 @@ import SwiftUI
 struct taches_asynchronesApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ConcurrenceAcces()
         }
     }
 }

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F806C4AC2686067B0005B29B /* MonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F806C4AB2686067B0005B29B /* MonViewModel.swift */; };
+		F8EB12632684D4A500C7A14F /* ConcurrenceAcces.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EB12622684D4A500C7A14F /* ConcurrenceAcces.swift */; };
 		F8F74515267A4EA8007660DC /* taches_asynchronesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F74514267A4EA8007660DC /* taches_asynchronesApp.swift */; };
 		F8F74517267A4EA8007660DC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F74516267A4EA8007660DC /* ContentView.swift */; };
 		F8F74519267A4EA9007660DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8F74518267A4EA9007660DC /* Assets.xcassets */; };
@@ -14,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F806C4AB2686067B0005B29B /* MonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonViewModel.swift; sourceTree = "<group>"; };
+		F8EB12622684D4A500C7A14F /* ConcurrenceAcces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcurrenceAcces.swift; sourceTree = "<group>"; };
 		F8F74511267A4EA8007660DC /* taches_asynchrones.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = taches_asynchrones.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8F74514267A4EA8007660DC /* taches_asynchronesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = taches_asynchronesApp.swift; sourceTree = "<group>"; };
 		F8F74516267A4EA8007660DC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -55,6 +59,8 @@
 				F8F74516267A4EA8007660DC /* ContentView.swift */,
 				F8F74518267A4EA9007660DC /* Assets.xcassets */,
 				F8F7451A267A4EA9007660DC /* Preview Content */,
+				F8EB12622684D4A500C7A14F /* ConcurrenceAcces.swift */,
+				F806C4AB2686067B0005B29B /* MonViewModel.swift */,
 			);
 			path = taches_asynchrones;
 			sourceTree = "<group>";
@@ -138,7 +144,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8F74517267A4EA8007660DC /* ContentView.swift in Sources */,
+				F8EB12632684D4A500C7A14F /* ConcurrenceAcces.swift in Sources */,
 				F8F74515267A4EA8007660DC /* taches_asynchronesApp.swift in Sources */,
+				F806C4AC2686067B0005B29B /* MonViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
