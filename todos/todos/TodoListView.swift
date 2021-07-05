@@ -13,6 +13,7 @@ struct TodoListView: View {
     @State var fastMode = false
     @State var newTaskName = ""
     @State var wantsToEmptyList = false
+    @FocusState var shouldFocusOnAddTodoField:Bool
     var body: some View {
         NavigationView {
             VStack {
@@ -48,8 +49,10 @@ struct TodoListView: View {
                                 todoList.insert(Todo(id: Int.random(in: 201...9999), title: newTaskName, completed: false), at: 0)
                             }
                             newTaskName = ""
+                            shouldFocusOnAddTodoField = true
                         }
                         .submitLabel(.done)
+                        .focused($shouldFocusOnAddTodoField)
                 }
                 List {
                     ForEach($todoList) { $todo in
@@ -80,6 +83,7 @@ struct TodoListView: View {
                 .navigationBarItems(trailing:
                     Button(action: {
                         fastMode = true
+                    shouldFocusOnAddTodoField = false
                     }, label: {
                         Label("Ajouter", systemImage: "plus")
                     }).buttonStyle(.bordered)
