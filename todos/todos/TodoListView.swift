@@ -19,7 +19,15 @@ struct TodoListView: View {
             VStack {
                 HStack {
                     Toggle(isOn: $fastMode) {
-                        Label("Fast", systemImage: "hare")
+                        Label {
+                            Text("Nouvelle tâche")
+                        } icon: {
+                            Image(systemName: "plus")
+                                .symbolRenderingMode(.multicolor)
+                                .foregroundStyle(.brown)
+                                
+                        }
+                        
                     }
                     .padding()
                     .toggleStyle(.button)
@@ -27,6 +35,7 @@ struct TodoListView: View {
                         wantsToEmptyList = true
                     } label: {
                         Label("Vider la liste", systemImage: "trash")
+                        
                     }.confirmationDialog("Vider la liste", isPresented: $wantsToEmptyList) {
                         Button(role: .destructive) {
                             todoList.removeAll()
@@ -36,9 +45,9 @@ struct TodoListView: View {
                     } message: {
                         Text("Vider cette liste va effacer toutes vos tâches définitivement. Êtes vous certain ?")
                     }
-
-
-
+                    
+                    
+                    
                 }
                 if fastMode {
                     Text("Utilisez le champ ci-dessous pour ajouter vos *tâches* à la liste. Plus d'infos sur [notre site](https://www.purplegiraffe.fr)").padding()
@@ -81,14 +90,14 @@ struct TodoListView: View {
                     }
                 }
                 .navigationBarItems(trailing:
-                    Button(action: {
-                        fastMode = true
+                                        Button(action: {
+                    fastMode = true
                     shouldFocusOnAddTodoField = false
-                    }, label: {
-                        Label("Ajouter", systemImage: "plus")
-                    }).buttonStyle(.bordered)
-                                        .controlProminence(.increased)
-                                        .controlSize(.large)
+                }, label: {
+                    Label("Ajouter", systemImage: "plus")
+                }).buttonStyle(.bordered)
+                    .controlProminence(.increased)
+                    .controlSize(.large)
                 )
                 .navigationTitle("Todos")
                 .task {
@@ -110,7 +119,7 @@ struct TodoListView: View {
                     }
                 }.onSubmit(of: .search) {
                     
-            }
+                }
             }
         }
         
