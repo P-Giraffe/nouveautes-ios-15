@@ -9,12 +9,16 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Canvas { canvasContext, size in
-            canvasContext.stroke(
-                Path(ellipseIn: CGRect(origin: .zero, size: CGSize(width: 200, height: 300))),
-                with: .color(.green),
-                lineWidth: 4)
+        TimelineView(.animation) { timelineContext in
+            Canvas { canvasContext, size in
+                canvasContext.stroke(
+                    Path(ellipseIn: CGRect(origin: .zero, size: size)),
+                    with: .color(.green),
+                    lineWidth: 4)
+                canvasContext.draw(Text(timelineContext.date.formatted(.dateTime.minute().second())), at: CGPoint(x: size.width/2, y: size.height/2))
+            }
         }
+        
         
             
     }
