@@ -16,6 +16,7 @@ struct TodoRow: View {
             }
             Text(todo.title)
                 .font(.headline)
+                .textSelection(.enabled)
             Spacer()
             if todo.completed {
                 Image(systemName: "checkmark")

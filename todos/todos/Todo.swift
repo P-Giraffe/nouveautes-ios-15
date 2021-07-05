@@ -5,6 +5,8 @@
 //  Created by Maxime Britto on 29/06/2021.
 //
 
+import Foundation
+
 struct Todo {
     let id:Int
     let title:String

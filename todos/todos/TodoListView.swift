@@ -40,7 +40,16 @@ struct TodoListView: View {
 
                 }
                 if fastMode {
-                    TextField("Nouvelle tâche", text: $newTaskName).padding()
+                    Text("Utilisez le champ ci-dessous pour ajouter vos *tâches* à la liste. Plus d'infos sur [notre site](https://www.purplegiraffe.fr)").padding()
+                    TextField("Nouvelle tâche", text: $newTaskName)
+                        .padding()
+                        .onSubmit {
+                            withAnimation {
+                                todoList.insert(Todo(id: Int.random(in: 201...9999), title: newTaskName, completed: false), at: 0)
+                            }
+                            newTaskName = ""
+                        }
+                        .submitLabel(.done)
                 }
                 List {
                     ForEach($todoList) { $todo in
@@ -70,7 +79,7 @@ struct TodoListView: View {
                 }
                 .navigationBarItems(trailing:
                     Button(action: {
-                        
+                        fastMode = true
                     }, label: {
                         Label("Ajouter", systemImage: "plus")
                     }).buttonStyle(.bordered)
