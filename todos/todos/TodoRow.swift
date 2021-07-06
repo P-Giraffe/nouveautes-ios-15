@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct TodoRow: View {
+    let status:LocalizedStringKey
     let todo:Todo
     var body: some View {
         HStack {
@@ -28,8 +29,8 @@ struct TodoRow: View {
 struct TodoRow_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            TodoRow(todo: Todo(id: 1, title: "A faire", completed: false, isImportant: true))
-            TodoRow(todo: Todo(id: 2, title: "Deja fait", completed: true))
+            TodoRow(status: "Status", todo: Todo(id: 1, title: "A faire", completed: false, isImportant: true))
+            TodoRow(status: "Status", todo: Todo(id: 2, title: "Deja fait", completed: true))
                 
         }.previewLayout(.fixed(width: 600, height: 100))
     }

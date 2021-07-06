@@ -13,6 +13,7 @@
 		F8392E08268B1654005B00D7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8392E07268B1654005B00D7 /* Preview Assets.xcassets */; };
 		F8392E0F268B1665005B00D7 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8392E0E268B1665005B00D7 /* Todo.swift */; };
 		F8392E11268B1740005B00D7 /* TodoRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8392E10268B1740005B00D7 /* TodoRow.swift */; };
+		F89C7A84269373E000A632AD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F89C7A82269373E000A632AD /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,8 @@
 		F8392E07268B1654005B00D7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F8392E0E268B1665005B00D7 /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
 		F8392E10268B1740005B00D7 /* TodoRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoRow.swift; sourceTree = "<group>"; };
+		F89C7A83269373E000A632AD /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F89C7A85269373E800A632AD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +42,7 @@
 		F8392DF4268B164E005B00D7 = {
 			isa = PBXGroup;
 			children = (
+				F89C7A82269373E000A632AD /* Localizable.strings */,
 				F8392DFF268B164E005B00D7 /* todos */,
 				F8392DFE268B164E005B00D7 /* Products */,
 			);
@@ -115,6 +119,7 @@
 			knownRegions = (
 				en,
 				Base,
+				fr,
 			);
 			mainGroup = F8392DF4268B164E005B00D7;
 			productRefGroup = F8392DFE268B164E005B00D7 /* Products */;
@@ -132,6 +137,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8392E08268B1654005B00D7 /* Preview Assets.xcassets in Resources */,
+				F89C7A84269373E000A632AD /* Localizable.strings in Resources */,
 				F8392E05268B1654005B00D7 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -151,6 +157,18 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		F89C7A82269373E000A632AD /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F89C7A83269373E000A632AD /* fr */,
+				F89C7A85269373E800A632AD /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		F8392E09268B1654005B00D7 /* Debug */ = {
@@ -210,6 +228,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -264,6 +283,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};

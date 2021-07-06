@@ -18,6 +18,9 @@ struct TodoListView: View {
         NavigationView {
             VStack {
                 HStack {
+                    Button("A TRADUIRE") {
+                        print("action traduite")
+                    }
                     Toggle(isOn: $fastMode) {
                         Label {
                             Text("Nouvelle tâche")
@@ -66,7 +69,7 @@ struct TodoListView: View {
                 List {
                     ForEach($todoList) { $todo in
                         if searchFilter.isEmpty || todo.title.lowercased().contains(searchFilter.lowercased()) {
-                            TodoRow(todo: todo).onTapGesture {
+                            TodoRow(status:"Status tâche", todo: todo).onTapGesture {
                                 todo.completed.toggle()
                             }.swipeActions(allowsFullSwipe:false) {
                                 
